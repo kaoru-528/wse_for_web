@@ -4,66 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>テストページ</title>
-  </head>
-  <body>
+</head>
+<div class ="row">
+<div class="col-md-6 col-md-offset-3">
     <h1>main page</h1>
-    <p>これはmainpageです。</p>
-    <div>
-        <p class="side_by_side">Dataset</p>
-        <input type="file" name="file" class="radio">
-    </div>
-    <div>
-        <p class="side_by_side" name="items">Data transformation</p>
-        <div class="side_by_side">
-            <label class="check_lb">
-            <input type="radio" name="DataTransformation" class="radio">A1
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="DataTransformation" class="radio">A2
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="DataTransformation" class="radio">A3
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="DataTransformation" class="radio">B1
-            </label>
-            <label class="check_lb">
-            <input type="radio"name="DataTransformation" class="radio">B2
-            </label>
-            <label class="check_lb">
-            <input type="radio"name="DataTransformation" class="radio">Fi
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="DataTransformation" class="radio">Fr
-            </label>
-        </div>
-    </div>
-    <div>
-        <p class="side_by_side" name="items">Thresholding Rule</p>
-        <div class="side_by_side">
-            <label class="check_lb">
-            <input type="radio" name=" ThresholdingRule" class="radio">Soft
-            </label>
-            <label class="check_lb">
-            <input type="radio" name=" ThresholdingRule" class="radio">Hard
-            </label>
-        </div>
-    </div>
-    <div>
-    <p class="side_by_side" name="items">Threshold Value</p>
-        <div class="side_by_side">
-            <label class="check_lb">
-            <input type="radio" name="ThresholdValue" class="radio">Universal
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="ThresholdValue" class="radio">Level-dependent Universal
-            </label>
-            <label class="check_lb">
-            <input type="radio" name="ThresholdValue" class="radio">Leave-out-half Cross-validation
-            </label>
-        </div>
-        <button type="submit" class="click" onclick="buttonClick1()">Estimation</button>
-    </div>
-    </form>
-  </body>
-</html>
+    <%= form_with url: post_data_path do |f| %>
+        <h2> Data Transformation  </h2>
+        <%= f.radio_button :dt, "A1" %>
+        <%= f.label :dt, "A1", {value: :A1, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "A2" %>
+        <%= f.label :dt, "A2", {value: :A2, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "A3" %>
+        <%= f.label :dt, "A3", {value: :A3, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "B1" %>
+        <%= f.label :dt, "B1", {value: :B1, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "B2" %>
+        <%= f.label :dt, "B2", {value: :B2, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "Fi" %>
+        <%= f.label :dt, "Fi", {value: :Fi, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "Fr" %>
+        <%= f.label :dt, "Fr", {value: :Fr, style: "display: inline-block;"} %>
+    <%= submit_tag("Submit") %>
+  <% end %>
+</div>
+</div>
+<%= debug(params) if Rails.env.development? %>
