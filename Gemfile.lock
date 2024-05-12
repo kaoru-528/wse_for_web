@@ -68,6 +68,10 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+<<<<<<< HEAD
+=======
+    bigdecimal (3.1.7)
+>>>>>>> main-page
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -90,6 +94,12 @@ GEM
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+<<<<<<< HEAD
+=======
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+>>>>>>> main-page
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -103,6 +113,10 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+<<<<<<< HEAD
+=======
+    json (1.8.6)
+>>>>>>> main-page
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -117,6 +131,11 @@ GEM
     mini_mime (1.1.5)
     minitest (5.22.3)
     msgpack (1.7.2)
+<<<<<<< HEAD
+=======
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
+>>>>>>> main-page
     net-imap (0.4.10)
       date
       net-protocol
@@ -241,6 +260,10 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+<<<<<<< HEAD
+=======
+  httparty (= 0.13.5)
+>>>>>>> main-page
   importmap-rails
   jbuilder
   puma (~> 5.0)

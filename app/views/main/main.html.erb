@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>テストページ</title>
+</head>
+<div class ="row">
+<div class="col-md-6 col-md-offset-3">
+    <h1>main page</h1>
+    <%= form_with url: post_data_path do |f| %>
+        <h2> Data Transformation  </h2>
+        <%= f.radio_button :dt, "A1" %>
+        <%= f.label :dt, "A1", {value: :A1, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "A2" %>
+        <%= f.label :dt, "A2", {value: :A2, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "A3" %>
+        <%= f.label :dt, "A3", {value: :A3, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "B1" %>
+        <%= f.label :dt, "B1", {value: :B1, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "B2" %>
+        <%= f.label :dt, "B2", {value: :B2, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "Fi" %>
+        <%= f.label :dt, "Fi", {value: :Fi, style: "display: inline-block;"} %>
+        <%= f.radio_button :dt, "Fr" %>
+        <%= f.label :dt, "Fr", {value: :Fr, style: "display: inline-block;"} %>
+    <%= submit_tag("Submit") %>
+  <% end %>
+</div>
+</div>
+<%= debug(params) if Rails.env.development? %>
