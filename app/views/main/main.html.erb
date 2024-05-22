@@ -4,28 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>テストページ</title>
-</head>
-<div class ="row">
-<div class="col-md-6 col-md-offset-3">
-    <h1>main page</h1>
-    <%= form_with url: post_data_path do |f| %>
-        <h2> Data Transformation  </h2>
-        <%= f.radio_button :dt, "A1" %>
-        <%= f.label :dt, "A1", {value: :A1, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "A2" %>
-        <%= f.label :dt, "A2", {value: :A2, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "A3" %>
-        <%= f.label :dt, "A3", {value: :A3, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "B1" %>
-        <%= f.label :dt, "B1", {value: :B1, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "B2" %>
-        <%= f.label :dt, "B2", {value: :B2, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "Fi" %>
-        <%= f.label :dt, "Fi", {value: :Fi, style: "display: inline-block;"} %>
-        <%= f.radio_button :dt, "Fr" %>
-        <%= f.label :dt, "Fr", {value: :Fr, style: "display: inline-block;"} %>
-    <%= submit_tag("Submit") %>
+  </head>
+<body>
+  <h1>main page</h1>
+  <%= form_with url: calculate_path, html: { method: :post, multipart: true } do |f| %>
+    # <%= f.file_field :data %>
+    # <%= f.submit 'Upload' %>
+    
+    <h2>Data Transformation</h2>
+    <%= f.radio_button :DataTransform, "A1" %>
+    <%= f.label :DataTransform_A1, "A1", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "A2" %>
+    <%= f.label :DataTransform_A2, "A2", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "A3" %>
+    <%= f.label :DataTransform_A3, "A3", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "B1" %>
+    <%= f.label :DataTransform_B1, "B1", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "B2" %>
+    <%= f.label :DataTransform_B2, "B2", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "Fi" %>
+    <%= f.label :DataTransform_Fi, "Fi", style: "display: inline-block;" %>
+    <%= f.radio_button :DataTransform, "Fr" %>
+    <%= f.label :DataTransform_Fr, "Fr", style: "display: inline-block;" %>
+    
+    <h2>Threshold Name</h2>
+    <%= f.radio_button :ThresholdName, "ut" %>
+    <%= f.label :ThresholdName_ut, "ut", style: "display: inline-block;" %>
+    <%= f.radio_button :ThresholdName, "lut" %>
+    <%= f.label :ThresholdName_lut, "lut", style: "display: inline-block;" %>
+    <%= f.radio_button :ThresholdName, "lht" %>
+    <%= f.label :ThresholdName_lht, "lht", style: "display: inline-block;" %>
+    
+    <h2>Threshold Mode</h2>
+    <%= f.radio_button :ThresholdMode, "s" %>
+    <%= f.label :ThresholdMode_s, "s", style: "display: inline-block;" %> 
+    <%= f.radio_button :ThresholdMode, "h" %>
+    <%= f.label :ThresholdMode_h, "h", style: "display: inline-block;" %>
+    
+    <%= f.submit "Submit" %>
   <% end %>
-</div>
-</div>
-<%= debug(params) if Rails.env.development? %>
+</body>
+</html>
