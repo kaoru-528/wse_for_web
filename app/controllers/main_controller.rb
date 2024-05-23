@@ -4,17 +4,15 @@ class MainController < ApplicationController
   def main
   end
   def calculate
-    if params[:data].present?
-      uploaded_file = params[:data]
-      file_path = Rails.root.join('tmp', uploaded_file.original_filename)
-
+    if params[:Data].present?
       r_script_path = Rails.root.join('lib', 'scripts', 'WaveletShrinkageEstimation.R').to_s
 
       # Rスクリプトを実行
-      stdout, stderr, status = Open3.capture3("Rscript", r_script_path," #{params[:DataTransform]}", "#{params[:ThresholdName]}", "#{params[:ThresholdMode]}")
+      stdout, stderr, status = Open3.capture3("Rscript", r_script_path, "#{params[:Data]}", "#{params[:DataTransform]}", "#{params[:ThresholdName]}", "#{params[:ThresholdMode]}")
       if status.success?
-        result = stdout.strip
-        session[:result] = result
+        result = stdout.strip.split(" ")
+        result_with_index = result.map.with_index(1) { |value, index| [index, value] }
+        session[:result] = result_with_index
         redirect_to result_path
       else
         render plain: "R script failed with error: #{stderr}", status: :internal_server_error
@@ -24,7 +22,7 @@ class MainController < ApplicationController
     end
   end
   def result
-    @mean =  session[:result]
+    @results =  session[:result]
   end
 
 end

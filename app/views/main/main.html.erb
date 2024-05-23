@@ -3,15 +3,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>テストページ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>WSE</title>
   </head>
 <body>
-  <h1>main page</h1>
+  <h1>WSE(Wavelet Shrinkage Estimation)</h1>
   <%= form_with url: calculate_path, html: { method: :post, multipart: true } do |f| %>
-    # <%= f.file_field :data %>
-    # <%= f.submit 'Upload' %>
+
+    <h2>Dataset</h2>
+    <%= f.radio_button :Data, "DS1.txt" %>
+    <%= f.label :Data_DS1, "DS1", style: "display: inline-block;" %>
+    <%= f.radio_button :Data, "DS2.txt" %>
+    <%= f.label :Data_DS2, "DS2", style: "display: inline-block;" %>
+    <%= f.radio_button :Data, "DS3.txt" %>
+    <%= f.label :Data_DS3, "DS3", style: "display: inline-block;" %>
+    <%= f.radio_button :Data, "DS4.txt" %>
+    <%= f.label :Data_DS4, "DS4", style: "display: inline-block;" %>
+    <%= f.radio_button :Data, "DS5.txt" %>
+    <%= f.label :Data_DS5, "DS5", style: "display: inline-block;" %>
+    <%= f.radio_button :Data, "DS6.txt" %>
+    <%= f.label :Data_DS6, "DS6", style: "display: inline-block;" %>
     
     <h2>Data Transformation</h2>
+    <%= f.radio_button :DataTransform, "none" %>
+    <%= f.label :DataTransform_none, "none", style: "display: inline-block;" %>
     <%= f.radio_button :DataTransform, "A1" %>
     <%= f.label :DataTransform_A1, "A1", style: "display: inline-block;" %>
     <%= f.radio_button :DataTransform, "A2" %>
@@ -28,19 +46,20 @@
     <%= f.label :DataTransform_Fr, "Fr", style: "display: inline-block;" %>
     
     <h2>Threshold Name</h2>
+    <p>Please chack the parameter. If you want to use DataTransform=none, please set ThresholdName=ldt only. </p>
+    <%= f.radio_button :ThresholdName, "ldt" %>
+    <%= f.label :ThresholdName_ldt, "ldt", style: "display: inline-block;" %>
     <%= f.radio_button :ThresholdName, "ut" %>
     <%= f.label :ThresholdName_ut, "ut", style: "display: inline-block;" %>
     <%= f.radio_button :ThresholdName, "lut" %>
     <%= f.label :ThresholdName_lut, "lut", style: "display: inline-block;" %>
-    <%= f.radio_button :ThresholdName, "lht" %>
-    <%= f.label :ThresholdName_lht, "lht", style: "display: inline-block;" %>
     
     <h2>Threshold Mode</h2>
     <%= f.radio_button :ThresholdMode, "s" %>
-    <%= f.label :ThresholdMode_s, "s", style: "display: inline-block;" %> 
+    <%= f.label :ThresholdMode_s, "s", style: "display: inline-block;" %>
     <%= f.radio_button :ThresholdMode, "h" %>
     <%= f.label :ThresholdMode_h, "h", style: "display: inline-block;" %>
-    
+
     <%= f.submit "Submit" %>
   <% end %>
 </body>

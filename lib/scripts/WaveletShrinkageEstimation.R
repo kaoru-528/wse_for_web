@@ -242,11 +242,11 @@ CreateResult = function(Hard, Soft, Index, ResultPath){
 
 
 args <- commandArgs(trailingOnly = TRUE)
-
-Data = LoadData("/Users/kaoru_m2mba/workspace/wse_for_web/lib/scripts/DS1.txt")
-DataTransform = args[1]
-ThresholdName = args[2]
-ThresholdMode = args[3]
+DataPath = paste0("./lib/scripts/", args[1])
+Data = LoadData(DataPath)
+DataTransform = args[2]
+ThresholdName = args[3]
+ThresholdMode = args[4]
 Var=1
 Index=3
 InitThresholdValue=1
