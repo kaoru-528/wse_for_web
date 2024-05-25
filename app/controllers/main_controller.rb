@@ -4,11 +4,11 @@ class MainController < ApplicationController
   def main
   end
   def calculate
-    if params[:Data].present?
+    if params[:func][:Data].present?
       r_script_path = Rails.root.join('lib', 'scripts', 'WaveletShrinkageEstimation.R').to_s
 
       # Rスクリプトを実行
-      stdout, stderr, status = Open3.capture3("Rscript", r_script_path, "#{params[:Data]}", "#{params[:DataTransform]}", "#{params[:ThresholdName]}", "#{params[:ThresholdMode]}")
+      stdout, stderr, status = Open3.capture3("Rscript", r_script_path, "#{params[:func][:Data]}", "#{params[:func][:DataTransform]}", "#{params[:func][:ThresholdName]}", "#{params[:func][:ThresholdMode]}")
       if status.success?
         result = stdout.strip.split(" ")
         result_with_index = result.map.with_index(1) { |value, index| [index, value] }
