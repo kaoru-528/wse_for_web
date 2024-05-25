@@ -1,5 +1,5 @@
 <h1>WSE(Wavelet Shrinkage Estimation)</h1>
-<%= form_with url: calculate_path, html: { method: :post, multipart: true } do |f| %>
+<%= form_with(url: calculate_path, method: :post, multipart: true) do |f| %>
 
   <h2>Dataset</h2>
   <%= f.radio_button :Data, "DS1.txt" %>
