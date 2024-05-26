@@ -1,11 +1,11 @@
 # Load wavelet conversion module
-WaveletTransformPath = "/Users/kaoru_m2mba/workspace/wse_for_web/lib/scripts/WaveletTransform.R"
+WaveletTransformPath = "/home/ubuntu/wse_for_web/lib/scripts/WaveletTransform.R"
 source(WaveletTransformPath)
 # Load data conversion module
-DtPath = "/Users/kaoru_m2mba/workspace/wse_for_web/lib/scripts/DataTransform.R"
+DtPath = "/home/ubuntu/wse_for_web/lib/scripts/DataTransform.R"
 source(DtPath)
 # Load Threshold Module
-ThresholdPath = "/Users/kaoru_m2mba/workspace/wse_for_web/lib/scripts/Threshold.R"
+ThresholdPath = "/home/ubuntu/wse_for_web/lib/scripts/Threshold.R"
 source(ThresholdPath)
 
 # Hal wavelet estimation without data transformation
@@ -242,11 +242,11 @@ CreateResult = function(Hard, Soft, Index, ResultPath){
 
 
 args <- commandArgs(trailingOnly = TRUE)
-DataPath = paste0("./lib/scripts/", args[1])
+DataPath = paste0("/home/ubuntu/wse_for_web/lib/scripts/", "DS1.txt")
 Data = LoadData(DataPath)
-DataTransform = args[2]
-ThresholdName = args[3]
-ThresholdMode = args[4]
+DataTransform = "none"
+ThresholdName = "ldt"
+ThresholdMode = "s"
 Var=1
 Index=3
 InitThresholdValue=1

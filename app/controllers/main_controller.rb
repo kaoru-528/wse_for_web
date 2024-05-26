@@ -1,12 +1,11 @@
 require 'open3'
 class MainController < ApplicationController
-
+  protect_from_forgery with: :null_session
   def main
   end
   def calculate
     if params[:func][:Data].present?
       r_script_path = Rails.root.join('lib', 'scripts', 'WaveletShrinkageEstimation.R').to_s
-
       # Rスクリプトを実行
       stdout, stderr, status = Open3.capture3("Rscript", r_script_path, "#{params[:func][:Data]}", "#{params[:func][:DataTransform]}", "#{params[:func][:ThresholdName]}", "#{params[:func][:ThresholdMode]}")
       if status.success?
@@ -23,6 +22,7 @@ class MainController < ApplicationController
   end
   def result
     @results =  session[:result]
+    debugger
   end
 
 end
